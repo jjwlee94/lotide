@@ -10,15 +10,14 @@ const assertEqual = function(actual, expected) {
 
 const eqArrays = function(firstArr, secondArr) {
   for (var i = 0; i < firstArr.length; i++) {
-    for (var j = 0; j < secondArr.length; j++) {
-      if (firstArr[i] == secondArr[j]) {
-        return true;
-      } else {
-        return false;
-      }
+    if (firstArr[i] !== secondArr[i]) {
+      return false;
     }
-  }
+  } 
+  return true;
 }
 
 assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => should PASS
 assertEqual(eqArrays([1, 2, 3], [3, 2, 1]), true); // => should FAIL
+assertEqual(eqArrays(["1", "2", "3"], ["1", "2", "3"]), true) // => true
+assertEqual(eqArrays(["1", "2", "3"], ["1", "2", 3]), true) // => false
