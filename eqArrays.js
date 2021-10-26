@@ -9,15 +9,16 @@ const assertEqual = function(actual, expected) {
 };
 
 const eqArrays = function(firstArr, secondArr) {
-  if (firstArr.length === secondArr.length) {
-    for (let i = 0; i < firstArr.length; i++) {
-      let result = secondArr.indexOf(firstArr[i]) !== -1;
-      if (result === false) {
+  for (var i = 0; i < firstArr.length; i++) {
+    for (var j = 0; j < secondArr.length; j++) {
+      if (firstArr[i] == secondArr[j]) {
+        return true;
+      } else {
         return false;
       }
     }
   }
-  return true;
-};
+}
 
 assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); // => should PASS
+assertEqual(eqArrays([1, 2, 3], [3, 2, 1]), true); // => should FAIL
