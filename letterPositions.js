@@ -16,9 +16,13 @@ const assertArraysEqual = function(firstArr, secondArr) {
 
 const letterPositions = function(sentence) {
   const result = {};
-  // Use for loop to loop through sentence[i]
-  // If letter is in result, push index position
-  // If letter is not in result, add to object
+  for (let i = 0; i < sentence.length; i++) {
+    if (result[sentence[i]]) {
+      result[sentence[i]].push(i);
+    } else {
+      result[sentence[i]] = [i];
+    }
+  }
   console.log(result);
   return result;
 };
