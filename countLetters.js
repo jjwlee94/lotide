@@ -12,11 +12,13 @@ const countLetters = function(string) {
   const result = {};
   const allLetters = string.split('');
   for (const letter of allLetters) {
-    if (result[letter]) {
-      result[letter] += 1;
-    } else {
-      result[letter] = 1;
-    } 
+    if (letter !== ' ') {
+      if (result[letter]) {
+        result[letter] += 1;
+      } else {
+        result[letter] = 1;
+      } 
+    }
   }
   console.log(result);
   return result;
