@@ -16,14 +16,11 @@ const countLetters = function(string) {
       result[letter] += 1;
     } else {
       result[letter] = 1;
-    }
-    console.log(result);
+    } 
   }
+  console.log(result);
   return result;
 }
 
-const string = "LHL";
+const string = "lighthouse in the house";
 const result = countLetters(string);
-
-assertEqual(result["L"], 2);
-assertEqual(result["H"], 1);
