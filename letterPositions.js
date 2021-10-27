@@ -17,14 +17,16 @@ const assertArraysEqual = function(firstArr, secondArr) {
 const letterPositions = function(sentence) {
   const result = {};
   for (let i = 0; i < sentence.length; i++) {
-    if (result[sentence[i]]) {
-      result[sentence[i]].push(i);
-    } else {
-      result[sentence[i]] = [i];
+    if (sentence[i] !== " ") {
+      if (result[sentence[i]]) {
+        result[sentence[i]].push(i);
+      } else {
+        result[sentence[i]] = [i];
+      }
     }
   }
   console.log(result);
   return result;
 };
 
-assertArraysEqual(letterPositions("lighthouse in the house").e, [9]);
+assertArraysEqual(letterPositions("lighthouse in the house").e, [9]); // => fail
