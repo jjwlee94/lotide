@@ -20,7 +20,15 @@ const assertArraysEqual = function(actual, expected) {
 }
 
 const takeUntil = function(array, callback) {
-
+  let result = [];
+  for (let i = 0; i < array.length; i++) {
+    if(callback(array[i]) === true) {
+      return result;
+    } else {
+      result.push(array[i]);
+    }
+  } 
+  return result;
 }
 
 const data1 = [1, 2, 5, 7, 2, -1, 2, 4, 5];
