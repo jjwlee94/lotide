@@ -8,20 +8,22 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-const findKeyByValue = function(object, value) {
+const findKey = function(object, callback) {
   let listOfKeys = Object.keys(object);
-  for (key of listOfKeys) {
-    if (object[key] === value) {
+  for (const key of listOfKeys) {
+    if (callback(object[key])) {
       return key;
     }
   }
 }
 
-findKey({
+const listOfStars ={
   "Blue Hill": { stars: 1 },
   "Akaleri":   { stars: 3 },
   "noma":      { stars: 2 },
   "elBulli":   { stars: 3 },
   "Ora":       { stars: 2 },
   "Akelarre":  { stars: 3 }
-}, x => x.stars === 2) // => "noma"
+};
+
+assertEqual(findKey(listOfStars, x => x.stars === 2), "noma");
