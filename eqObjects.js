@@ -9,30 +9,36 @@ const assertEqual = function(actual, expected) {
 };
 
 const eqArrays = function(firstArr, secondArr) {
-  for (var i = 0; i < firstArr.length; i++) {
-    if (firstArr[i] !== secondArr[i]) {
-      return false;
-    }
-  } 
-  return true;
-}
-
-const eqObjects = function(object1, object2) {
-  let listOfKeysObj1 = Object.keys(object1);
-  let listOfKeysObj2 = Object.keys(object2);
-  if (listOfKeysObj1.length !== listOfKeysObj2.length) {
+  if (firstArr.length !== secondArr.length) {
     return false;
   } else {
-    for (key of listOfKeysObj1) {
-      if (Array.isArray(object1[key]) === Array.isArray(object2[key])) {
-        return eqArrays(object1[key], object2[key]);
-      } else {
+    for (let i = 0; i < firstArr.length; i++) {
+      if (firstArr[i] !== secondArr[i]) {
         return false;
       }
     }
     return true;
   }
 };
+const eqObjects = function(object1, object2) {
+  const listOfKeysObj1 = Object.keys(object1);
+  const listOfKeysObj2 = Object.keys(object2);
+  if (listOfKeysObj1.length !== listOfKeysObj2.length) {
+    return false;
+  } else {
+    for (let key of listOfKeysObj1) {
+      if (Array.isArray(object1[key]) && Array.isArray(object2[key])) {
+        return eqArrays(object1[key], object2[key]);
+      } else {
+        if (object1[key] !== object2[key]) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+};
+
 
 const ab = { a: "1", b: "2" };
 const ba = { b: "2", a: "1" };
