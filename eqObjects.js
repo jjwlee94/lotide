@@ -20,6 +20,7 @@ const eqArrays = function(firstArr, secondArr) {
     return true;
   }
 };
+
 const eqObjects = function(object1, object2) {
   const listOfKeysObj1 = Object.keys(object1);
   const listOfKeysObj2 = Object.keys(object2);
