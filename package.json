@@ -1,0 +1,27 @@
+{
+  "name": "@jjwlee94/lotide",
+  "version": "1.0.1",
+  "description": "A mini clone of the [Lodash](https://lodash.com) library.",
+  "main": "assertArraysEqual.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjwlee94/lotide.git"
+  },
+  "keywords": [],
+  "author": "Jeewon Lee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jjwlee94/lotide/issues"
+  },
+  "homepage": "https://github.com/jjwlee94/lotide#readme",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3"
+  }
+}
